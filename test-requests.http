@@ -1,0 +1,89 @@
+### 第1次
+POST http://localhost:8080/seckill/do
+Content-Type: application/x-www-form-urlencoded
+
+goodsId=1&userId=1001
+
+### 第2次
+POST http://localhost:8080/seckill/do
+Content-Type: application/x-www-form-urlencoded
+
+goodsId=1&userId=1002
+
+### 第3次
+POST http://localhost:8080/seckill/do
+Content-Type: application/x-www-form-urlencoded
+
+goodsId=1&userId=1003
+
+### 第4次
+POST http://localhost:8080/seckill/do
+Content-Type: application/x-www-form-urlencoded
+
+goodsId=1&userId=1004
+
+### 第5次
+POST http://localhost:8080/seckill/do
+Content-Type: application/x-www-form-urlencoded
+
+goodsId=1&userId=1005
+
+### 第6次
+POST http://localhost:8080/seckill/do
+Content-Type: application/x-www-form-urlencoded
+
+goodsId=1&userId=1006
+
+### 第7次
+POST http://localhost:8080/seckill/do
+Content-Type: application/x-www-form-urlencoded
+
+goodsId=1&userId=1007
+
+### 第8次
+POST http://localhost:8080/seckill/do
+Content-Type: application/x-www-form-urlencoded
+
+goodsId=1&userId=1008
+
+### 第9次
+POST http://localhost:8080/seckill/do
+Content-Type: application/x-www-form-urlencoded
+
+goodsId=1&userId=1009
+
+### 第10次
+POST http://localhost:8080/seckill/do
+Content-Type: application/x-www-form-urlencoded
+
+goodsId=1&userId=1010
+
+### 第11次
+POST http://localhost:8080/seckill/do
+Content-Type: application/x-www-form-urlencoded
+
+goodsId=1&userId=1011
+
+### 第12次
+POST http://localhost:8080/seckill/do
+Content-Type: application/x-www-form-urlencoded
+
+goodsId=1&userId=1012
+
+### 第13次
+POST http://localhost:8080/seckill/do
+Content-Type: application/x-www-form-urlencoded
+
+goodsId=1&userId=1013
+
+### 第14次
+POST http://localhost:8080/seckill/do
+Content-Type: application/x-www-form-urlencoded
+
+goodsId=1&userId=1014
+
+### 第15次
+POST http://localhost:8080/seckill/do
+Content-Type: application/x-www-form-urlencoded
+
+goodsId=1&userId=1015

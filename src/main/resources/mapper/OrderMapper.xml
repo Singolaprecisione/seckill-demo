@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 订单数据访问映射 -->
+<mapper namespace="com.seckill.mapper.OrderMapper">
+
+    <!-- 插入订单记录 -->
+    <!-- useGeneratedKeys="true" keyProperty="id" 自动返回生成的主键ID -->
+    <insert id="insertOrder" parameterType="com.seckill.entity.OrderInfo" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO order_info (user_id, goods_id, goods_name, goods_count, goods_price, status, create_time)
+        VALUES (#{userId}, #{goodsId}, #{goodsName}, #{goodsCount}, #{goodsPrice}, #{status}, #{createTime})
+    </insert>
+
+    <!-- 查询用户是否已下过该商品的秒杀订单 -->
+    <select id="countByUserAndGoods" resultType="int">
+        SELECT COUNT(1)
+        FROM order_info
+        WHERE user_id = #{userId} AND goods_id = #{goodsId}
+    </select>
+
+</mapper>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 商品数据访问映射 -->
+<mapper namespace="com.seckill.mapper.GoodsMapper">
+
+    <!-- Goods 实体结果映射 -->
+    <resultMap id="BaseResultMap" type="com.seckill.entity.Goods">
+        <id column="id" property="id"/>
+        <result column="goods_name" property="goodsName"/>
+        <result column="goods_title" property="goodsTitle"/>
+        <result column="goods_img" property="goodsImg"/>
+        <result column="goods_detail" property="goodsDetail"/>
+        <result column="goods_price" property="goodsPrice"/>
+        <result column="goods_stock" property="goodsStock"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <!-- SeckillGoods 实体结果映射 -->
+    <resultMap id="SeckillGoodsResultMap" type="com.seckill.entity.SeckillGoods">
+        <id column="id" property="id"/>
+        <result column="goods_id" property="goodsId"/>
+        <result column="seckill_price" property="seckillPrice"/>
+        <result column="stock_count" property="stockCount"/>
+        <result column="start_time" property="startTime"/>
+        <result column="end_time" property="endTime"/>
+        <result column="version" property="version"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <!-- 查询所有商品 -->
+    <select id="findAllGoods" resultMap="BaseResultMap">
+        SELECT id, goods_name, goods_title, goods_img, goods_detail, goods_price, goods_stock, create_time, update_time
+        FROM goods
+    </select>
+
+    <!-- 根据商品ID查询秒杀商品详情 -->
+    <select id="findSeckillGoodsByGoodsId" resultMap="SeckillGoodsResultMap">
+        SELECT id, goods_id, seckill_price, stock_count, start_time, end_time, version, create_time, update_time
+        FROM seckill_goods
+        WHERE goods_id = #{goodsId}
+    </select>
+
+    <!-- 扣减库存（用于演示超卖问题） -->
+    <update id="reduceStock">
+        UPDATE seckill_goods
+        SET stock_count = stock_count - 1
+        WHERE goods_id = #{goodsId} AND stock_count > 0
+    </update>
+
+    <!-- 查询所有秒杀商品（用于Redis预热） -->
+    <select id="findAllSeckillGoods" resultMap="SeckillGoodsResultMap">
+        SELECT id, goods_id, seckill_price, stock_count, start_time, end_time, version, create_time, update_time
+        FROM seckill_goods
+    </select>
+
+</mapper>
